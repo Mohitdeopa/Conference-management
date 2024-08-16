@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conference Details</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1><%= conference.title %></h1>
+        <p><%= conference.description %></p>
+        <p>Date: <%= conference.date.toISOString().split('T')[0] %></p>
+
+        <h2>Submit Feedback</h2>
+        <form action="/conference/<%= conference._id %>/feedback" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <input type="submit" value="Submit">
+        </form>
+
+        <h2>Feedback</h2>
+        <ul>
+            <% feedbacks.forEach(feedback => { %>
+                <li>
+                    <strong><%= feedback.name %> (<%= feedback.email %>)</strong>
+                    <p><%= feedback.message %></p>
+                </li>
+            <% }) %>
+        </ul>
+    </div>
+</body>
+</html>

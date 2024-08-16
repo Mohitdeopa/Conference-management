@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conference Management System</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <script>
+        function navigateToUser() {
+            window.location.href = '/user';
+        }
+
+        function navigateToAdmin() {
+            window.location.href = '/admin';
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Conference Management System</h1>
+        <div class="buttons">
+            <button class="button" onclick="navigateToUser()">User Registration</button>
+            <button class="button" onclick="navigateToAdmin()">Admin Panel</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Panel</h1>
+        <a class="button" href="/admin/new">Create New Conference</a>
+
+        <h2>Conferences</h2>
+        <ul>
+            <% conferences.forEach(function(conference) { %>
+                <li>
+                    <div>
+                        <strong><%= conference.title %></strong> - <%= conference.date.toISOString().split('T')[0] %>
+                        <p><%= conference.description %></p>
+                    </div>
+                    <div>
+                        <a class="button" href="/admin/edit/<%= conference._id %>">Edit</a>
+                        <form action="/admin/delete/<%= conference._id %>" method="POST" style="display:inline;">
+                            <button type="submit" class="button">Delete</button>
+                        </form>
+                    </div>
+                </li>
+            <% }) %>
+        </ul>
+
+        <h2>Registered Users</h2>
+        <ul>
+            <% users.forEach(function(user) { %>
+                <li>
+                    <strong><%= user.name %> (<%= user.email %>)</strong>
+                    <form action="/admin/user/delete/<%= user._id %>" method="POST" style="display:inline;">
+                        <button type="submit" class="button">Delete</button>
+                    </form>
+                </li>
+            <% }) %>
+        </ul>
+
+        <h2>Feedback</h2>
+        <ul>
+            <% feedbacks.forEach(function(feedback) { %>
+                <li>
+                    <strong><%= feedback.name %> (<%= feedback.email %>)</strong>
+                    <p><%= feedback.message %></p>
+                    <form action="/admin/feedback/delete/<%= feedback._id %>" method="POST" style="display:inline;">
+                        <button type="submit" class="button">Delete</button>
+                    </form>
+                </li>
+            <% }) %>
+        </ul>
+    </div>
+</body>
+</html>

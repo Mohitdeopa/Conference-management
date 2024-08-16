@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conference Schedules</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Conference Schedules</h1>
+        <ul>
+            <% conferences.forEach(conference => { %>
+                <li>
+                    <strong><%= conference.title %></strong> - <%= conference.date.toISOString().split('T')[0] %>
+                    <p><%= conference.description %></p>
+                </li>
+            <% }) %>
+        </ul>
+    </div>
+</body>
+</html>

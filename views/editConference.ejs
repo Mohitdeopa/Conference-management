@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Conference</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Conference</h1>
+        <form class="edit-form" action="/admin/edit/<%= conference._id %>" method="post">
+            <label for="title">Title:</label><br>
+            <input type="text" id="title" name="title" value="<%= conference.title %>"><br>
+            <label for="description">Description:</label><br>
+            <textarea id="description" name="description"><%= conference.description %></textarea><br>
+            <label for="date">Date:</label><br>
+            <input type="date" id="date" name="date" value="<%= conference.date.toISOString().split('T')[0] %>"><br>
+            <input type="submit" value="Update">
+        </form>
+    </div>
+</body>
+</html>

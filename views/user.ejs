@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Registration</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>User Registration</h1>
+        <form action="/user/register" method="post">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name"><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email"><br>
+            <input type="submit" value="Register">
+        </form>
+        <a class="button" href="/user/schedules">View Schedules</a>
+        <a class="button" href="/user/feedback">Submit Feedback</a>
+    </div>
+</body>
+</html>
